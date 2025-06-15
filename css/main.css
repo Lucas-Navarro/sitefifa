@@ -1,0 +1,85 @@
+#quadrado__banner{
+    margin: 2rem 25rem;
+    background: lightblue;
+    width: 1100px;
+    height: 350px;
+}
+
+li {
+    list-style-type: none;
+}
+
+
+/* 1-  Estilos do container com as duas plataformas */
+.precificacoes {
+    margin: 0rem 25rem;
+}
+
+.logos{
+    display: flex;
+    justify-content: space-around;
+    border-radius: 30px;
+    margin: 4rem 8rem;
+    background: linear-gradient(to right, blue 50%, green 50%)
+}
+
+.logo__dispositivos {
+    width: 100px;
+    height: 80px;
+}
+
+/* 1 - Termina aqui */
+
+
+/* 2- Parte dos preços com as plataformas */
+.logo__preco {
+    width: 70px;
+    height: 50px;
+    border: 1px solid #f0f0f0;
+    margin: 0 0.5rem;
+    border-radius: 10px;
+}
+
+
+/* Estilos únicos das plataformas */
+#psn {
+    background-color: blue;
+}
+
+#xbox {
+    background-color: green;
+}
+
+.preco__quantidade {
+    display: flex;
+    padding: 1rem;
+    justify-content: space-between;
+    background: linear-gradient(to right, #2e2e2e 88%, yellow 11%);
+    align-items: center;
+    margin: 1rem 8rem;
+    border-radius: 30px;
+}
+
+.quantidade {
+    padding: 0 1.5rem;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.estilo__preco {
+    margin: 0 25rem;
+}
+
+.estilo__caixa__preco {
+    display: flex;
+    align-items: center;
+}
+
+.botao__comprar {
+    background-color: yellow;
+    border: none;
+    color: #000;
+    font-weight: bold;
+    font-size: 14px;
+    
+}

@@ -1,0 +1,29 @@
+.cabecalho{
+    background-color: #2e2e2e;
+    display: flex;
+    margin: 2rem 25rem;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 50px;
+    padding: 1rem;  
+}
+
+.img__logo{
+    width: 220px;
+    height: 70px;
+}
+
+.cabecalho__nav{
+    margin: 0 2rem;
+}
+
+.cabecalho__link{
+    text-decoration: none;
+    color: var(--branco);
+    padding: 0 1rem;
+}
+
+.cabecalho__link:hover{
+    color: #FFD700;
+    border-bottom:2px solid #FFD700;
+}

@@ -1,0 +1,27 @@
+@import url('css/cabecalho.css');
+@import url('css/main.css');
+
+:root {
+    --fonte-principal: 'Poppins';
+    --cor-de-fundo: #3D4849;
+    --rosa-botao: #FD4296;
+    --branco: #ffffff;
+    --cor-de-fundo-rdp: #1467AB;
+}
+
+body {
+    scroll-behavior: smooth;
+    background: var(--cor-de-fundo);
+    font-family: var(--fonte-principal);
+    font-size: 16px;
+    color: var(--branco);
+    font-weight: 400;
+    width: 100%;
+    height: 100vh;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
