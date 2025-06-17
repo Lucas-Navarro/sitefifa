@@ -1,0 +1,209 @@
+/* Adições para o Contador do Carrinho no Header */
+.cart-counter {
+    background-color: #dc3545; /* Vermelho */
+    color: white;
+    font-size: 0.7em; /* Tamanho da fonte menor */
+    padding: 2px 6px;
+    border-radius: 50%; /* Faz um círculo */
+    position: relative;
+    top: -8px; /* Ajusta a posição vertical */
+    left: -5px; /* Ajusta a posição horizontal */
+    min-width: 18px; /* Largura mínima para 1 ou 2 dígitos */
+    text-align: center;
+    line-height: 1.4; /* Ajusta a altura da linha para centralizar */
+    display: inline-block; /* Permite ajuste de padding e min-width */
+}
+
+/* Estilos para a página carrinho.html */
+.carrinho-main {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.carrinho-main h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2.2em;
+}
+
+#cart-items-container {
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px dashed #eee;
+    gap: 15px;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-grow: 1;
+}
+
+.cart-item-info .cart-item-logo {
+    width: 30px; /* Tamanho das logos no carrinho */
+    height: 30px;
+    object-fit: contain;
+}
+
+.cart-item-info h4 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.cart-item-info p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.cart-item-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden; /* Para os botões ficarem dentro da borda */
+}
+
+.quantity-control button {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s ease;
+}
+
+.quantity-control button:hover {
+    background-color: #e0e0e0;
+}
+
+.quantity-control span {
+    padding: 0 10px;
+    min-width: 30px; /* Garante largura para a quantidade */
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+}
+
+.remove-item-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease;
+}
+
+.remove-item-btn:hover {
+    background-color: #c82333;
+}
+
+.cart-summary-total {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid #007bff;
+    text-align: right;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+}
+
+.cart-summary-total #cart-total {
+    color: #28a745;
+}
+
+.checkout-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    margin-top: 20px;
+    width: 100%;
+    transition: background-color 0.2s ease;
+}
+
+.checkout-button:hover {
+    background-color: #218838;
+}
+
+.checkout-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.continue-shopping {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+.continue-shopping:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Ajustes gerais para layout responsivo */
+@media (max-width: 768px) {
+    .cabecalho {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .cabecalho__nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .cabecalho__link {
+        margin: 5px 10px;
+    }
+
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cart-item-actions {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+
+    .quantity-control {
+        width: auto;
+    }
+}

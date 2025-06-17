@@ -12,13 +12,16 @@
 </head>
 <body>
     <header class="cabecalho">
-        <img src="img/leroCoinslogo.png" alt="Logo LeroCoins" class="img__logo">
+        <a href="index.html"><img src="img/leroCoinslogo.png" alt="Logo LeroCoins" class="img__logo"></a>
         <nav class="cabecalho__nav">
         <a href="" class="cabecalho__link">Venda suas coins</a>
         <a href="" class="cabecalho__link">Como funciona?</a>
         <a href="" class="cabecalho__link">Sobre nós</a>
         </nav>
-        <a href="carrinho.html  "><img src="img/icons8-carrinho-de-compras-30.png" alt="Carrinho de compras"></a>
+        <a href="carrinho.html" id="icon__carrinho">
+            <img src="img/icons8-carrinho-de-compras-30.png" alt="Carrinho de compras">
+            <span id="contador__carrinho" class="cart-counter">0</span>
+        </a>
     </header>
     <main>
         <div id="quadrado__banner"></div>
@@ -29,7 +32,7 @@
             </div>
         </section>
         <ol class="estilo__preco">
-            <li class="estilo__coins">
+            <li class="estilo__coins" data-id="console-50k" data-name="50k coins console" data-price="5.00" data-plataform="Console">
                 <section class="preco__quantidade">
                     <section class="estilo__caixa__preco">
                         <img class="logo__preco" id="psn" src="img/psnlogo.png" alt="Logo Psn">
@@ -41,7 +44,7 @@
                     <button type="button"  class="botao__comprar">COMPRAR</button>
                     </div>
                 </section>
-                            <li class="estilo__coins">
+                <li class="estilo__coins" data-id="console-100k" data-name="100k coins console" data-price="5.00" data-plataform="Console">
                 <section class="preco__quantidade">
                     <section class="estilo__caixa__preco">
                         <img class="logo__preco" id="psn" src="img/psnlogo.png" alt="Logo Psn">
@@ -54,7 +57,7 @@
                     </div>
                 </section>
             </li>
-                        <li class="estilo__coins">
+                <li class="estilo__coins" data-id="console-200k" data-name="200k coins console" data-price="5.00" data-plataform="Console">
                 <section class="preco__quantidade">
                     <section class="estilo__caixa__preco">
                         <img class="logo__preco" id="psn" src="img/psnlogo.png" alt="Logo Psn">
@@ -67,7 +70,7 @@
                     </div>
                 </section>
             </li>
-                        <li class="estilo__coins">
+                <li class="estilo__coins" data-id="console-300k" data-name="300k coins console" data-price="5.00" data-plataform="Console">
                 <section class="preco__quantidade">
                     <section class="estilo__caixa__preco">
                         <img class="logo__preco" id="psn" src="img/psnlogo.png" alt="Logo Psn">
@@ -80,7 +83,7 @@
                     </div>
                 </section>
             </li>
-                        <li class="estilo__coins">
+                <li class="estilo__coins" data-id="console-400k" data-name="400k coins console" data-price="5.00" data-plataform="Console">
                 <section class="preco__quantidade">
                     <section class="estilo__caixa__preco">
                         <img class="logo__preco" id="psn" src="img/psnlogo.png" alt="Logo Psn">
@@ -93,7 +96,7 @@
                     </div>
                 </section>
             </li>
-                        <li class="estilo__coins">
+                <li class="estilo__coins" data-id="console-500k" data-name="500k coins console" data-price="5.00" data-plataform="Console">
                 <section class="preco__quantidade">
                     <section class="estilo__caixa__preco">
                         <img class="logo__preco" id="psn" src="img/psnlogo.png" alt="Logo Psn">
@@ -106,7 +109,7 @@
                     </div>
                 </section>
             </li>
-                                    <li class="estilo__coins">
+                <li class="estilo__coins" data-id="console-600k" data-name="600k coins console" data-price="5.00" data-plataform="Console">
                 <section class="preco__quantidade">
                     <section class="estilo__caixa__preco">
                         <img class="logo__preco" id="psn" src="img/psnlogo.png" alt="Logo Psn">
@@ -119,7 +122,7 @@
                     </div>
                 </section>
             </li>
-                                    <li class="estilo__coins">
+                <li class="estilo__coins" data-id="console-700k" data-name="700k coins console" data-price="5.00" data-plataform="Console">
                 <section class="preco__quantidade">
                     <section class="estilo__caixa__preco">
                         <img class="logo__preco" id="psn" src="img/psnlogo.png" alt="Logo Psn">
@@ -132,7 +135,7 @@
                     </div>
                 </section>
             </li>
-                                    <li class="estilo__coins">
+                <li class="estilo__coins" data-id="console-800k" data-name="800k coins console" data-price="5.00" data-plataform="Console">
                 <section class="preco__quantidade">
                     <section class="estilo__caixa__preco">
                         <img class="logo__preco" id="psn" src="img/psnlogo.png" alt="Logo Psn">
@@ -145,7 +148,7 @@
                     </div>
                 </section>
             </li>
-                                    <li class="estilo__coins">
+                <li class="estilo__coins" data-id="console-900k" data-name="900k coins console" data-price="5.00" data-plataform="Console">
                 <section class="preco__quantidade">
                     <section class="estilo__caixa__preco">
                         <img class="logo__preco" id="psn" src="img/psnlogo.png" alt="Logo Psn">
@@ -158,7 +161,7 @@
                     </div>
                 </section>
             </li>
-                                    <li class="estilo__coins">
+                <li class="estilo__coins" data-id="console-1m" data-name="1m coins console" data-price="5.00" data-plataform="Console">
                 <section class="preco__quantidade">
                     <section class="estilo__caixa__preco">
                         <img class="logo__preco" id="psn" src="img/psnlogo.png" alt="Logo Psn">
@@ -171,6 +174,9 @@
                     </div>
                 </section>
             </li>
+            <li class="formulario__link">
+                <p>Quer um valor específico? <a href="formulario.html" class="formulario__mandar">Clique Aqui</a></p>
+            </li>
         </ol>
     </main>
     <section>
@@ -179,5 +185,6 @@
     <footer>
 
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>

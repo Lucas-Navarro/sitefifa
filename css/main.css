@@ -83,3 +83,11 @@ li {
     font-size: 14px;
     
 }
+
+.formulario__link{
+    margin: 1rem 8rem;
+}
+
+.formulario__mandar {
+    color: yellow;
+}
