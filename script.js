@@ -1,11 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Elementos DOM ---
     const cartCountElement = document.getElementById('contador__carrinho');
-    const addToCartButtons = document.querySelectorAll('.botao__comprar'); // Seleciona todos os botões de comprar
-    const cartIconLink = document.getElementById('icon__carrinho'); // O link do ícone do carrinho no header
+    const addToCartButtons = document.querySelectorAll('.botao__comprar'); 
+    const cartIconLink = document.getElementById('icon__carrinho'); 
 
-    // --- Variáveis de Estado do Carrinho ---
-    let cart = []; // Array para armazenar os itens do carrinho
+    let carrinho = []; 
 
     // --- Funções de Utilitário ---
 
@@ -13,25 +11,23 @@ document.addEventListener('DOMContentLoaded', () => {
     function loadCartFromLocalStorage() {
         const storedCart = localStorage.getItem('leroFifaCart');
         if (storedCart) {
-            cart = JSON.parse(storedCart);
+            carrinho = JSON.parse(storedCart);
         } else {
-            cart = []; // Garante que o carrinho esteja vazio se não houver nada no localStorage
+            carrinho = []; // Garante que o carrinho esteja vazio se não houver nada no localStorage
         }
         updateCartCount(); // Atualiza a contagem no cabeçalho ao carregar
     }
 
     // Salva o carrinho no localStorage
     function saveCartToLocalStorage() {
-        localStorage.setItem('leroFifaCart', JSON.stringify(cart));
+        localStorage.setItem('leroFifaCart', JSON.stringify(carrinho));
     }
 
     // Atualiza a contagem de itens no cabeçalho
     function updateCartCount() {
-        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        const totalItems = carrinho.reduce((sum, item) => sum + item.quantity, 0);
         cartCountElement.textContent = totalItems;
     }
-
-    // --- Event Listeners ---
 
     // Adicionar item ao carrinho
     addToCartButtons.forEach(button => {
@@ -44,18 +40,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const productId = productElement.dataset.id;
             const productName = productElement.dataset.name;
-            // Garante que o preço seja um número. Substitui vírgula por ponto se necessário.
             const productPrice = parseFloat(productElement.dataset.price);
             const productPlatform = productElement.dataset.platform;
 
             // Verifica se o item já existe no carrinho
-            const existingItem = cart.find(item => item.id === productId);
+            const existingItem = carrinho.find(item => item.id === productId);
 
             if (existingItem) {
                 existingItem.quantity++; // Se existe, apenas incrementa a quantidade
             } else {
                 // Se não existe, adiciona o novo item
-                cart.push({
+                carrinho.push({
                     id: productId,
                     name: productName,
                     price: productPrice,
@@ -67,10 +62,82 @@ document.addEventListener('DOMContentLoaded', () => {
             saveCartToLocalStorage();    // Salva o carrinho
             updateCartCount();           // Atualiza a contagem no cabeçalho
             alert(`"${productName}" adicionado ao carrinho!`); // Feedback para o usuário
-            console.log('Carrinho atual:', cart);
+            console.log('Carrinho atual:', carrinho);
         });
     });
 
     // --- Inicialização ---
     loadCartFromLocalStorage(); // Carrega o carrinho quando a página é carregada pela primeira vez
 });
+
+// script.js
+
+// Dados DEFINIDOS para o gráfico
+const graficoCoins = {
+    labels: ['2019', '2020', '2021', '2022', '2023', '2024', '2025'],
+    datasets: [{
+        label: 'Desempenho Anual em vendas de coins',
+        data: [1, 68, 90, 85, 70, 95, 600], // Seus valores pré-definidos aqui
+        backgroundColor: [
+            'rgba(255, 99, 132, 0.6)', 
+            'rgba(54, 162, 235, 0.6)',  
+            'rgba(255, 206, 86, 0.6)',  
+            'rgba(75, 192, 192, 0.6)',  
+            'rgba(153, 102, 255, 0.6)', 
+            'rgba(255, 159, 64, 0.6)',  
+            'rgba(255, 255, 255, 0.6)',
+        ]
+    }]
+};
+
+// Opções do gráfico (para controle de animação e aparência)
+const chartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+        y: {
+            beginAtZero: true,
+            title: {
+                display: true,
+                text: 'Valores em Milhões',
+                color: '#fff'
+            },
+            ticks: {
+                color: '#fff'
+            }
+            
+        },
+        x: {
+            title: {
+                display: true,
+                text: 'Anos',
+                color: '#fff'
+            },
+            ticks: {
+                color: '#fff'
+            }
+        }
+    },
+    plugins: {
+        tooltip: {
+            enabled: true,
+        },
+        legend: {
+            display: true, 
+            position: 'top',
+        }
+    },
+    animation: {
+        duration: 1500, 
+        easing: 'easeInOutQuad'
+    }
+};
+
+const ctx = document.getElementById('graficoCoins').getContext('2d');
+
+let graficoCoinss = new Chart(ctx, {
+    type: 'bar', 
+    data: graficoCoins,
+    options: chartOptions
+});
+

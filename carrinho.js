@@ -1,14 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Elementos DOM ---
     const cartCountElement = document.getElementById('contador__carrinho'); // Para atualizar o contador no header desta página também
     const cartItemsContainer = document.getElementById('cart-items-container');
     const cartTotalElement = document.getElementById('cart-total');
     const checkoutButton = document.getElementById('checkout-button');
 
-    // --- Variáveis de Estado do Carrinho ---
     let cart = [];
-
-    // --- Funções de Utilitário ---
 
     // Carrega o carrinho do localStorage
     function loadCartFromLocalStorage() {

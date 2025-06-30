@@ -1,0 +1,33 @@
+.formulario{
+    margin: 2rem 25rem;
+    padding: 2rem;
+    background-color: #2e2e2e;
+}
+
+h1 {
+    text-align: center;
+    padding: 1rem;
+}
+
+h2 {
+    text-align: center;
+}
+
+.formulario__itens {
+    margin: 2rem 0;
+}
+
+.conteudo__formulario {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    position: relative;
+}
+
+.conteudo__formulario label{
+    display: inline-block;
+    margin-bottom: 1em;
+}
+
+.conteudo__formulario input {
+    display: block;
+}

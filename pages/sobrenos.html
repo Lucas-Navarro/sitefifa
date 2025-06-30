@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>LeroFifaCoins - Como funciona?</title>
+</head>
+    <body>
+        <header class="cabecalho">
+            <a href="../index.html"><img src="../img/leroCoinslogo.png" alt="Logo LeroCoins" class="img__logo"></a>
+            <nav class="cabecalho__nav">
+                <a href="formulariovenda.html" class="cabecalho__link">Venda suas coins</a>
+                <a href="comofuncionar.html" class="cabecalho__link">Como funciona?</a>
+                <a href="sobrenos.html" class="cabecalho__link">Sobre nós</a>
+            </nav>
+            <a href="../carrinho.html" id="icon__carrinho">
+                <img src="../img/icons8-carrinho-de-compras-30.png" alt="Carrinho de compras">
+                <span id="contador__carrinho" class="cart-counter">0</span>
+            </a>
+        </header>
+        <main class="sobrenos">
+            <img src="../img/leroCoinslogo.png" alt="Lero Coins fifa logo" class="sobrenos__img">
+            <p>A <strong>LeroFifaCoins</strong> atua no mercado desde 2011, oferecendo a venda de coins com transparência, 
+                confiança e comprometimento. Desde o início, tem fidelizado seus clientes ao explicar de forma clara e 
+                segura como funciona o processo de compra, construindo assim uma reputação sólida ao longo dos anos.</p>    
+        </main>
+        <h1>Vendas em Anos</h1>
+        <section class="sobrenos__grafico_container">
+            <div class="sobrenos__grafico">
+                <canvas id="graficoCoins"></canvas>
+            </div>   
+        </section>
+    <script src="../script.js"></script>
+    </body>
+</html>

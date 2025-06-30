@@ -1,6 +1,8 @@
 @import url('css/cabecalho.css');
 @import url('css/main.css');
 @import url('css/carrinho.css');
+@import url('css/sobrenos.css');
+@import url('css/formulario.css');  
 
 :root {
     --fonte-principal: 'Poppins';
