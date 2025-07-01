@@ -1,5 +1,9 @@
+.precos_main{
+    margin: 0 25rem;
+}
+
 #quadrado__banner{
-    margin: 2rem 25rem;
+    margin: 2rem 0;
     background: lightblue;
     width: 1100px;
     height: 350px;
@@ -12,14 +16,14 @@ li {
 
 /* 1-  Estilos do container com as duas plataformas */
 .precificacoes {
-    margin: 0rem 25rem;
+    margin: 0rem 10rem;
 }
 
 .logos{
     display: flex;
     justify-content: space-around;
     border-radius: 30px;
-    margin: 4rem 8rem;
+    margin: 4rem 0;
     background: linear-gradient(to right, blue 50%, green 50%)
 }
 
@@ -56,7 +60,7 @@ li {
     justify-content: space-between;
     background: linear-gradient(to right, #2e2e2e 88%, yellow 11%);
     align-items: center;
-    margin: 1rem 8rem;
+    margin: 1rem 0;
     border-radius: 30px;
 }
 
@@ -67,7 +71,7 @@ li {
 }
 
 .estilo__preco {
-    margin: 0 25rem;
+    margin: 0 10rem;
 }
 
 .estilo__caixa__preco {
@@ -76,16 +80,17 @@ li {
 }
 
 .botao__comprar {
-    background-color: yellow;
+    background: none ;
     border: none;
     color: #000;
     font-weight: bold;
     font-size: 14px;
+    cursor: pointer;
     
 }
 
 .formulario__link{
-    margin: 1rem 8rem;
+    margin: 1rem 0;
 }
 
 .formulario__mandar {

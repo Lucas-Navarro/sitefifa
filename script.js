@@ -140,4 +140,3 @@ let graficoCoinss = new Chart(ctx, {
     data: graficoCoins,
     options: chartOptions
 });
-
