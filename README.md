@@ -7,11 +7,10 @@
 - Página de formulário para que o usuário seja um fornecedor
 - Formulário para valores combinados
 - Utilização do <strong>Chart.js</strong> para a criação de gráficos dinâmicos
-- Formulário com verificações de inputs
 
 <p>Próximas atualizações:</p>
 
 - Adição da API Mercado Pago
-- NameView Telefone
+- Finalização dos formulários
 - Gráficos com dados reais
 - Versão responsiva

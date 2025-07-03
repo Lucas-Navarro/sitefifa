@@ -74,10 +74,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Dados DEFINIDOS para o gráfico
 const graficoCoins = {
-    labels: ['2019', '2020', '2021', '2022', '2023', '2024', '2025'],
+    labels: ['2016','2017','2018','2019', '2020', '2021', '2022', '2023', '2024', '2025'],
     datasets: [{
         label: 'Desempenho Anual em vendas de coins',
-        data: [1, 68, 90, 85, 70, 95, 600], // Seus valores pré-definidos aqui
+        data: [190,233,240,223, 200, 401, 320, 468, 512, 713], // Seus valores pré-definidos aqui
         backgroundColor: [
             'rgba(255, 99, 132, 0.6)', 
             'rgba(54, 162, 235, 0.6)',  
