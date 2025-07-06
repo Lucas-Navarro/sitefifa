@@ -1,0 +1,50 @@
+.parceiros {
+    margin: 0 35rem 5rem 35rem;
+    border-radius: 1rem;
+}
+
+.parceiros h1 {
+    font-size: 36px;
+}
+
+.card__config {
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    background-color: #2e2e2e;
+    border: 2px solid #fff;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+    margin: 0 1rem 1rem 0;
+    padding: 1rem;
+    align-items: center;
+}
+
+.card__img {
+    width: 200px;
+    height: 200px;
+    border: 2px solid #fff;
+}
+
+.card__nome {
+    margin-top: 0.2rem;
+    text-transform: uppercase;
+}
+
+.card__botao {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: yellow;
+    border: none;
+}
+
+.card__botao a {
+    color: #000;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+}

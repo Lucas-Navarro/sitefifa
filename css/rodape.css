@@ -1,0 +1,33 @@
+.rodapé {
+    background: #2e2e2e;
+    text-align: center;
+}
+
+.rodapé .container {
+    padding: 3em;
+}
+
+.rodapé__titulo {
+    font-size: 36px;
+    font-weight: 600;
+}
+
+.rodapé__vagas {
+    font-size: 20px;
+    color: var(--cinza);
+    padding: 1em 0 1em 0;
+}
+
+.botão {
+    padding: 0.9em;
+}
+
+.rodapé__direitos {
+    color: #98A2B3;
+    padding: 1em 0 0 0;
+}
+
+.rodape__link__redes {
+    width: 50px;
+    height: 50px;
+}

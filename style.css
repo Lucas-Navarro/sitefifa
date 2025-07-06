@@ -2,7 +2,9 @@
 @import url('css/main.css');
 @import url('css/carrinho.css');
 @import url('css/sobrenos.css');
+@import url('css/rodape.css');
 @import url('css/formulario.css');  
+@import url('css/parceiros.css');
 
 :root {
     --fonte-principal: 'Poppins';
@@ -13,7 +15,6 @@
 }
 
 body {
-    scroll-behavior: smooth;
     background: var(--cor-de-fundo);
     font-family: var(--fonte-principal);
     font-size: 16px;

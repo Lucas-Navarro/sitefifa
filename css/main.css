@@ -1,5 +1,5 @@
 .precos_main{
-    margin: 0 25rem;
+    margin: 0 25rem 10rem 25rem;
 }
 
 .logo__banner {
@@ -94,4 +94,38 @@ li {
 
 .formulario__mandar {
     color: yellow;
+}
+
+.botao__flutuantes {
+position: fixed;
+  bottom: 20px;
+  right: 20px;
+  /* Outras propriedades de estilo aqui */
+  background-color: #25D366;
+  padding: 15px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease-in-out;
+}
+
+.botao__flutuantes_insta {
+position: fixed;
+  bottom: 110px;
+  right: 20px;
+  /* Outras propriedades de estilo aqui */
+  background-color: #25D366;
+  padding: 15px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease-in-out;
+}
+
+.botao__flutuantes:hover {
+    transform: scale(1.1);
 }
