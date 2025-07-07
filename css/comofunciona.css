@@ -1,0 +1,55 @@
+.comofunciona {
+    margin: 0 25rem;
+}
+
+.comofunciona h1 {
+    margin: 1rem;
+}
+
+.comofunciona__entrega {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    background-color: #2e2e2e;
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 30px;
+}
+
+.comofunciona__conteudo {
+    padding: 1rem;
+}
+
+.comofunciona__conteudo h2 {
+    margin-bottom: 0.5rem;
+}
+
+.comofunciona__conteudo strong {
+    color: yellow;
+}
+
+.comofunciona__img {
+    border-radius: 30px;
+    width: 250px;
+    height: 500px;
+}
+
+.comofunciona__icon {
+    margin: 0 1rem;
+    width: 50px;
+    height: 50px;
+}
+
+.comofunciona__atencao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.comofunciona__lista {
+    margin: 0 1rem;
+}
+
+.comofunciona__lista li {
+    margin: 0.5rem 0;
+}

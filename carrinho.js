@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const cartCountElement = document.getElementById('contador__carrinho'); // Para atualizar o contador no header desta página também
+    const cartCountElement = document.getElementById('contador__carrinho');
     const cartItemsContainer = document.getElementById('cart-items-container');
     const cartTotalElement = document.getElementById('cart-total');
     const checkoutButton = document.getElementById('checkout-button');
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             cart = [];
         }
-        updateCartCount(); // Atualiza a contagem no cabeçalho
+        updateCartCount(); // Atualiza a contagem no cabeçalho ao carregar
     }
 
     // Salva o carrinho no localStorage
@@ -62,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             itemElement.innerHTML = `
                 <div class="cart-item-info">
+                    <img src="img/fifacoins.png" alt="Logo LeroCoins" class="img__carrinho">
                     ${platformLogo}
                     <h4>${item.name}</h4>
                     <p>Preço unitário: ${item.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
@@ -131,21 +132,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
-
-    // --- Ação de Finalizar Compra (apenas demonstração) ---
-    checkoutButton.addEventListener('click', () => {
-        if (cart.length > 0) {
-            const totalValue = calculateCartTotal();
-            alert(`Compra finalizada!\nTotal: ${totalValue}\n\nDetalhes da compra seriam enviados para um backend aqui.`);
-            // Limpa o carrinho após a "compra"
-            cart = [];
-            saveCartToLocalStorage();
-            renderCartItems(); // Re-renderiza (mostra carrinho vazio)
-            updateCartCount(); // Atualiza o contador do header
-        } else {
-            alert('Seu carrinho está vazio. Adicione itens antes de finalizar a compra.');
-        }
-    });
 
     // --- Inicialização da Página do Carrinho ---
     loadCartFromLocalStorage(); // Carrega o carrinho ao abrir a página

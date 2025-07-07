@@ -175,6 +175,11 @@
     text-decoration: underline;
 }
 
+.img__carrinho {
+    width: 50px;
+    height: 40px;
+}
+
 /* Ajustes gerais para layout responsivo */
 @media (max-width: 768px) {
     .cabecalho {
