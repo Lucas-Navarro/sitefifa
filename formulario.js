@@ -1,5 +1,4 @@
 // Formulário código
-
 const form = document.getElementById('form');
 const nome = document.getElementById('nome');
 const email = document.getElementById('email');
@@ -26,7 +25,7 @@ telefone.addEventListener("blur", () =>{
 })
 
 plataforma.addEventListener("blur", () =>{
-    checkInputEmail();
+    checkInputPlataforma();
 })
 
 quantidadeCoins.addEventListener("blur", () =>{
@@ -75,12 +74,9 @@ function checkInputPlataforma(){
     if (plataformaValor === ""){
         errorInput(plataforma, "Plataforma é essencial")
     }
-    else if (plataformaValor.toLowerCase() === "PS4" | plataformaValor.toLowerCase() === "XBOX" | plataformaValor.toLowerCase() === "PS5"){
+    else{
         const formItem = plataforma.parentElement;
         formItem.className = "conteudo__formulario"
-    }
-    else {
-        errorInput(plataforma, "Plataforma escrita incorretamente")
     }
 }
 
@@ -96,7 +92,7 @@ function checkInputQuantidadeCoins(){
     }
 }
 
-function checkFormulario(){
+async function checkFormulario(){
     checkInputNome();
     checkInputEmail();
     checkInputTelefone();
@@ -110,7 +106,38 @@ function checkFormulario(){
     });
 
     if (eValido) {
-        alert("Formulário enviado com sucesso", nome);
+        // Collect form data
+        const formData = {
+            nome: nome.value,
+            email: email.value,
+            telefone: telefone.value,
+            plataforma: plataforma.value,
+            quantidadeCoins: quantidadeCoins.value
+        };
+
+        try {
+            // Send data to your backend endpoint
+            const response = await fetch('http://localhost:6969/send-email', { // Replace with your actual backend URL
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            if (response.ok) {
+                alert("Formulário enviado com sucesso!");
+                form.reset(); // Clear the form after successful submission
+            } else {
+                alert("Erro ao enviar formulário. Tente novamente mais tarde.");
+                console.error('Server error:', response.statusText);
+            }
+        } catch (error) {
+            alert("Erro de conexão ao enviar formulário.");
+            console.error('Network error:', error);
+        }
+    } else {
+        alert("Por favor, preencha todos os campos corretamente.");
     }
 }
 

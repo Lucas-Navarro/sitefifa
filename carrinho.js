@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cartCountElement = document.getElementById('contador__carrinho');
     const cartItemsContainer = document.getElementById('cart-items-container');
     const cartTotalElement = document.getElementById('cart-total');
-    const checkoutButton = document.getElementById('checkout-button');
+    const checkoutButton = document.getElementById('checkout-button'); //
 
     let cart = [];
 
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             cart = [];
         }
-        updateCartCount(); // Atualiza a contagem no cabeçalho ao carregar
+        updateCartCount();
     }
 
     // Salva o carrinho no localStorage
@@ -36,23 +36,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Renderiza os itens no container do carrinho
     function renderCartItems() {
-        cartItemsContainer.innerHTML = ''; // Limpa a lista atual
+        cartItemsContainer.innerHTML = '';
 
         if (cart.length === 0) {
             cartItemsContainer.innerHTML = '<p>Seu carrinho está vazio.</p>';
             cartTotalElement.textContent = 'R$ 0,00';
-            checkoutButton.disabled = true; // Desabilita o botão de finalizar se o carrinho estiver vazio
+            checkoutButton.disabled = true;
             return;
         } else {
-            checkoutButton.disabled = false; // Habilita se tiver itens
+            checkoutButton.disabled = false;
         }
 
         cart.forEach(item => {
             const itemElement = document.createElement('div');
             itemElement.classList.add('cart-item');
-            itemElement.dataset.id = item.id; // Adiciona o ID para fácil manipulação
+            itemElement.dataset.id = item.id;
 
-            // Verifica qual logo exibir baseado na plataforma
             let platformLogo = '';
             if (item.platform === 'PSN') {
                 platformLogo = '<img src="img/psnlogo.png" alt="Logo PSN" class="cart-item-logo">';
@@ -62,7 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             itemElement.innerHTML = `
                 <div class="cart-item-info">
-                    <img src="img/fifacoins.png" alt="Logo LeroCoins" class="img__carrinho">
                     ${platformLogo}
                     <h4>${item.name}</h4>
                     <p>Preço unitário: ${item.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
@@ -79,9 +77,8 @@ document.addEventListener('DOMContentLoaded', () => {
             cartItemsContainer.appendChild(itemElement);
         });
 
-        // Atualiza o total
         cartTotalElement.textContent = calculateCartTotal();
-        addCartItemListeners(); // Adiciona listeners aos botões de cada item
+        addCartItemListeners();
     }
 
     // Adiciona listeners para os botões de controle de quantidade e remover
@@ -93,10 +90,10 @@ document.addEventListener('DOMContentLoaded', () => {
         removeItemButtons.forEach(button => {
             button.addEventListener('click', (event) => {
                 const itemId = event.target.dataset.id;
-                cart = cart.filter(item => item.id !== itemId); // Remove o item do array
+                cart = cart.filter(item => item.id !== itemId);
                 saveCartToLocalStorage();
-                renderCartItems(); // Re-renderiza para atualizar a lista
-                updateCartCount(); // Atualiza o contador do header
+                renderCartItems();
+                updateCartCount();
             });
         });
 
@@ -107,14 +104,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (itemToUpdate && itemToUpdate.quantity > 1) {
                     itemToUpdate.quantity--;
                     saveCartToLocalStorage();
-                    renderCartItems(); // Re-renderiza
-                    updateCartCount(); // Atualiza o contador do header
+                    renderCartItems();
+                    updateCartCount();
                 } else if (itemToUpdate && itemToUpdate.quantity === 1) {
-                    // Se a quantidade for 1 e diminuir, remove o item
                     cart = cart.filter(item => item.id !== itemId);
                     saveCartToLocalStorage();
-                    renderCartItems(); // Re-renderiza
-                    updateCartCount(); // Atualiza o contador do header
+                    renderCartItems();
+                    updateCartCount();
                 }
             });
         });
@@ -126,14 +122,67 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (itemToUpdate) {
                     itemToUpdate.quantity++;
                     saveCartToLocalStorage();
-                    renderCartItems(); // Re-renderiza
-                    updateCartCount(); // Atualiza o contador do header
+                    renderCartItems();
+                    updateCartCount();
                 }
             });
         });
     }
 
+    // --- Ação de Finalizar Compra com Mercado Pago (Chama o seu novo Backend) ---
+    checkoutButton.addEventListener('click', async () => { //
+        if (cart.length === 0) {
+            alert('Seu carrinho está vazio. Adicione itens antes de finalizar a compra.');
+            return;
+        }
+
+        // Prepara os itens para enviar ao seu backend
+        const itemsToSend = cart.map(item => ({
+            id: item.id,
+            name: item.name,
+            quantity: item.quantity,
+            price: item.price,
+            platform: item.platform
+        }));
+
+        try {
+            // **Chamada para o seu backend Node.js**
+            // A URL deve ser a do seu servidor e o endpoint que você criou.
+            // Se o frontend e o backend estiverem no mesmo host/porta, pode ser um caminho relativo.
+            const response = await fetch('http://localhost:6969/create-mercadopago-preference', { // Caminho relativo se o server.js servir o frontend
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ items: cart }) // Envia os itens para o backend
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                console.error('Erro ao chamar o backend para Mercado Pago:', errorData);
+                alert('Ocorreu um erro ao tentar finalizar a compra. Por favor, tente novamente.');
+                return;
+            }
+
+            const data = await response.json();
+            const init_point = data.init_point; // Recebe a URL de checkout do seu backend
+
+            if (init_point) {
+                window.location.href = init_point; // Redireciona para o checkout do Mercado Pago
+                saveCartToLocalStorage();
+                renderCartItems();
+                updateCartCount();
+            } else {
+                alert('Não foi possível obter a URL de pagamento do Mercado Pago.');
+            }
+
+        } catch (error) {
+            console.error('Erro na requisição para o backend:', error);
+            alert('Ocorreu um erro de rede ao tentar finalizar a compra. Por favor, verifique sua conexão.');
+        }
+    });
+
     // --- Inicialização da Página do Carrinho ---
-    loadCartFromLocalStorage(); // Carrega o carrinho ao abrir a página
-    renderCartItems();           // Renderiza os itens na página
+    loadCartFromLocalStorage();
+    renderCartItems();
 });

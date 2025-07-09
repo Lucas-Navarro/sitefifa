@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const addToCartButtons = document.querySelectorAll('.botao__comprar'); 
     const cartIconLink = document.getElementById('icon__carrinho'); 
 
-    let carrinho = []; 
+    let cart = []; 
 
     // --- Funções de Utilitário ---
 
@@ -11,25 +11,25 @@ document.addEventListener('DOMContentLoaded', () => {
     function loadCartFromLocalStorage() {
         const storedCart = localStorage.getItem('leroFifaCart');
         if (storedCart) {
-            carrinho = JSON.parse(storedCart);
+            cart = JSON.parse(storedCart);
         } else {
-            carrinho = []; // Garante que o carrinho esteja vazio se não houver nada no localStorage
+            cart = []; // Garante que o cart esteja vazio se não houver nada no localStorage
         }
         updateCartCount(); // Atualiza a contagem no cabeçalho ao carregar
     }
 
-    // Salva o carrinho no localStorage
+    // Salva o cart no localStorage
     function saveCartToLocalStorage() {
-        localStorage.setItem('leroFifaCart', JSON.stringify(carrinho));
+        localStorage.setItem('leroFifaCart', JSON.stringify(cart));
     }
 
     // Atualiza a contagem de itens no cabeçalho
     function updateCartCount() {
-        const totalItems = carrinho.reduce((sum, item) => sum + item.quantity, 0);
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
         cartCountElement.textContent = totalItems;
     }
 
-    // Adicionar item ao carrinho
+    // Adicionar item ao cart
     addToCartButtons.forEach(button => {
         button.addEventListener('click', (event) => {
             const productElement = event.target.closest('.estilo__coins'); // Pega o LI pai
@@ -43,14 +43,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const productPrice = parseFloat(productElement.dataset.price);
             const productPlatform = productElement.dataset.platform;
 
-            // Verifica se o item já existe no carrinho
-            const existingItem = carrinho.find(item => item.id === productId);
+            // Verifica se o item já existe no cart
+            const existingItem = cart.find(item => item.id === productId);
 
             if (existingItem) {
                 existingItem.quantity++; // Se existe, apenas incrementa a quantidade
             } else {
                 // Se não existe, adiciona o novo item
-                carrinho.push({
+                cart.push({
                     id: productId,
                     name: productName,
                     price: productPrice,
@@ -59,10 +59,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
 
-            saveCartToLocalStorage();    // Salva o carrinho
+            saveCartToLocalStorage();    // Salva o cart
             updateCartCount();           // Atualiza a contagem no cabeçalho
-            alert(`"${productName}" adicionado ao carrinho!`); // Feedback para o usuário
-            console.log('Carrinho atual:', carrinho);
+            alert(`"${productName}" adicionado ao cart!`); // Feedback para o usuário
+            console.log('Carrinho atual:', cart);
         });
     });
 
