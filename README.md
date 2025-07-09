@@ -11,5 +11,8 @@
 
 <p>Próximas atualizações:</p>
 
+- Ajustar preços dos itens
+- Adição da roleta demonstrativa
+- Finalização da section parceiros
 - Adição da API Mercado Pago
 - Versão responsiva
