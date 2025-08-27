@@ -2,15 +2,13 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
-require('dotenv').config(); // Carrega variáveis de ambiente do arquivo .env
+require('dotenv').config(); 
 
-// Importar MercadoPagoConfig e Preference
 const { MercadoPagoConfig, Preference } = require('mercadopago');
 
 const app = express();
-const port = 6969; // Ou qualquer porta que você preferir
+const port = 6969; 
 
-// Middleware para analisar corpos JSON
 app.use(bodyParser.json());
 
 // Habilitar CORS (Cross-Origin Resource Sharing) se seu frontend estiver em um domínio diferente
@@ -23,7 +21,6 @@ app.use((req, res, next) => {
     next();
 });
 
-// Configurar o cliente Mercado Pago com seu Access Token
 const client = new MercadoPagoConfig({
     accessToken: process.env.MERCADO_PAGO_ACCESS_TOKEN
 });
@@ -35,22 +32,20 @@ app.use('/pages', express.static(__dirname + '/../pages')); // Serve arquivos da
 app.use('/img', express.static(__dirname + '/../img'));     // Serve arquivos da subpasta 'img'
 app.use('/css', express.static(__dirname + '/../css'));     // Serve arquivos da subpasta 'css'
 
-
-// Endpoint para enviar e-mail do formulário de contato
 app.post('/send-email', async (req, res) => {
     const { nome, email, telefone, plataforma, quantidadeCoins } = req.body;
 
     let transporter = nodemailer.createTransport({
-        service: 'gmail', // Exemplo: 'gmail' ou use 'host' e 'port' para SMTP personalizado
+        service: 'gmail', // 'gmail' ou use 'host' e 'port'
         auth: {
-            user: process.env.EMAIL_USER,    // Seu e-mail (ex: seu_email@gmail.com)
-            pass: process.env.EMAIL_PASS     // Sua senha de app/aplicativo do Gmail
+            user: process.env.EMAIL_USER,    
+            pass: process.env.EMAIL_PASS     
         }
     });
 
     let mailOptions = {
         from: process.env.EMAIL_USER,
-        to: 'lucasr6out@gmail.com', // E-mail de destino
+        to: 'lucasr6out@gmail.com', 
         subject: 'Novo Formulário de Contato do Site',
         html: `
             <p>Você recebeu uma nova mensagem do formulário de contato:</p>
@@ -74,30 +69,27 @@ app.post('/send-email', async (req, res) => {
     }
 });
 
-// Endpoint para criar preferência de pagamento do Mercado Pago
 app.post('/create-mercadopago-preference', async (req, res) => {
     try {
-        const { items } = req.body; // Recebe os itens do carrinho do frontend
+        const { items } = req.body; 
 
         if (!items || !Array.isArray(items) || items.length === 0) {
             return res.status(400).json({ error: 'Nenhum item válido foi fornecido para criar a preferência.' });
         }
 
-        // Mapeia os itens do carrinho para o formato esperado pelo Mercado Pago
         const preferenceItems = items.map(item => ({
             id: item.id,
-            title: item.name,        // Assumindo que 'name' é o título
+            title: item.name,        
             quantity: item.quantity,
-            unit_price: parseFloat(item.price) // Garante que é um número
+            unit_price: parseFloat(item.price) 
         }));
 
         const preferenceBody = {
             items: preferenceItems,
-            // Exemplo de URLs de retorno (adapte para as suas páginas de sucesso/falha)
             back_urls: {
-                success: "http://localhost:6969/paginaspagamento/success.html", // Crie esta página se não existir
-                failure: "http://localhost:6969/paginaspagamento/failure.html", // Crie esta página se não existir
-                pending: "http://localhost:6969/paginaspagamento/pending.html"  // Crie esta página se não existir
+                success: "http://localhost:6969/paginaspagamento/success.html", 
+                failure: "http://localhost:6969/paginaspagamento/failure.html", 
+                pending: "http://localhost:6969/paginaspagamento/pending.html"  
             }
         };
 
@@ -113,7 +105,6 @@ app.post('/create-mercadopago-preference', async (req, res) => {
     }
 });
 
-// Inicia o servidor
 app.listen(port, () => {
     console.log(`Servidor rodando em http://localhost:${port}`);
 });

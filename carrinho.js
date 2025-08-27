@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cartCountElement = document.getElementById('contador__carrinho');
     const cartItemsContainer = document.getElementById('cart-items-container');
     const cartTotalElement = document.getElementById('cart-total');
-    const checkoutButton = document.getElementById('checkout-button'); //
+    const checkoutButton = document.getElementById('checkout-button'); 
 
     let cart = [];
 
