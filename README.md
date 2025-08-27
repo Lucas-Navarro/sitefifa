@@ -8,11 +8,12 @@
 - Formulário para valores combinados
 - Utilização do <strong>Chart.js</strong> para a criação de gráficos dinâmicos
 - Gráficos com dados reais
+- Uso da API do mercado pago
+- Usando nodejs e express como servidores
 
 <p>Próximas atualizações:</p>
 
 - Ajustar preços dos itens
 - Adição da roleta demonstrativa
 - Finalização da section parceiros
-- Adição da API Mercado Pago
 - Versão responsiva
